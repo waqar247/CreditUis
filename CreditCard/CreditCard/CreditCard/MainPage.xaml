@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CreditCard"
+               xmlns:con="clr-namespace:CreditCard.Converter"
+             
+             x:Class="CreditCard.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <con:CreditCardNumberValueConverter x:Key="K"></con:CreditCardNumberValueConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout
+                HorizontalOptions="Fill" 
+                VerticalOptions="Fill"
+                Orientation="Vertical">
+                       <Entry 
+                       HorizontalOptions="Fill"
+                      
+                       Placeholder="Card Number">
+                    <Entry.Behaviors>
+                        <con:NumberFormatterBehavior></con:NumberFormatterBehavior>
+                    </Entry.Behaviors>
+                </Entry>
+                    <Grid>
+                     <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition> 
+                     </Grid.RowDefinitions>
+                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="15"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                     </Grid.ColumnDefinitions>
+                     <Entry 
+                         Placeholder="MM"
+                         Grid.Row="0" 
+                         Grid.Column="0" />
+                     <Entry
+                         Text="/"
+                         IsEnabled="False" 
+                         TextColor="Black" 
+                         Grid.Row="0"
+                         Grid.Column="1" />
+                     <Entry
+                         Placeholder="YY" 
+                         Grid.Row="0"
+                         Grid.Column="2" />
+                    </Grid>
+                    <Entry 
+                        HorizontalOptions="Fill"
+                        Placeholder="Security Code"></Entry>
+                    <Grid>
+                     <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                     </Grid.RowDefinitions>
+                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="15"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                      </Grid.ColumnDefinitions>
+                    <Entry
+                        Placeholder="First Name"
+                        Grid.Row="0" 
+                        Grid.Column="0" />
+                    <Entry
+                        Placeholder="Last Name" 
+                        Grid.Row="0" 
+                        Grid.Column="2" />
+                    </Grid>
+                   <Button HorizontalOptions="Fill" Text="Done"></Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+<!--<Entry.Behaviors>
+    <con:NumberFormatterBehavior></con:NumberFormatterBehavior>
+</Entry.Behaviors>-->
+
+<!--Text="{Binding Number , Converter={StaticResource K}}"-->
